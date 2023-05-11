@@ -105,4 +105,4 @@ if __name__ == '__main__':
     bot = VkTools(acces_token)
     params = bot.get_profile_info(789657038)
     users = bot.serch_users(params)
-    # print(bot.get_photos(users[2]['id']))
+

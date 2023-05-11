@@ -25,13 +25,11 @@ class BotInterface:
         keyboard.add_button('Поиск', color=VK_kb.PRIMARY)
         keyboard.add_line()
         keyboard.add_button('Лайк!', color=VK_kb.POSITIVE)
-        # keyboard.add_button('Игнорировать', color=VK_kb.NEGATIVE)
         keyboard.add_line()
         keyboard.add_button('Просмотреть избранное', color=VK_kb.SECONDARY)
-        # keyboard.add_button('Игнор-лист', color=VK_kb.SECONDARY)
         keyboard.add_line()
         keyboard.add_button('Очистить избранное', color=VK_kb.NEGATIVE)
-        # keyboard.add_button('Удалить Игнор-лист', color=VK_kb.SECONDARY)
+
 
         return keyboard.get_keyboard()
 
@@ -80,7 +78,6 @@ class BotInterface:
                     while insert_viewed(user["id"]):
                         cnt += 1
                         user = users.pop(cnt)
-                    # здесь логика дял проверки бд
                     photos_user = self.api.get_photos(user['id'])
                     attachment = ''
                     for num, photo in enumerate(photos_user):
@@ -102,7 +99,6 @@ class BotInterface:
                     id_list = []
                     for id in res:
                         id_list.append(id[0])
-                    id_list2 = []
                     for x in id_list:
                         y = self.api.get_profile_info(x)
                         y = y['name']
